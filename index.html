@@ -2,251 +2,206 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Qatar Visa Center – VIP Lounge</title>
+<title>Qatar Visa Center – SMS OTP Service</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
-*{box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{
-  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-  margin:0;
-  padding:0;
-  min-height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#333;
+* { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body {
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  margin: 0; padding: 0; min-height: 100vh;
+  display: flex; justify-content: center; align-items: center; color: #333;
 }
-.card{
-  background:#fff;
-  width:95%;
-  max-width:420px;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 25px 50px rgba(0,0,0,.3);
-  transform:perspective(1000px) rotateX(2deg);
+.card {
+  background: #fff;
+  width: 95%; max-width: 480px;
+  padding: 30px; border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0,0,0,.3);
+  transform: perspective(1000px) rotateX(2deg);
 }
-.logo{
-  text-align:center;
-  margin-bottom:10px;
+.logo { text-align: center; margin-bottom: 10px; }
+.logo img { width: 120px; }
+h1 {
+  font-size: 24px; text-align: center;
+  color: maroon; font-weight: 700; margin-bottom: 5px;
 }
-.logo img{
-  width:120px;
+.sub {
+  text-align: center; font-size: 14px;
+  color: #666; margin-bottom: 20px;
 }
-h1{
-  font-size:20px;
-  text-align:center;
-  margin-bottom:5px;
+.input-box {
+  background: linear-gradient(145deg, #f9f1e7, #e7f1f9);
+  border-radius: 15px; padding: 14px;
+  margin-bottom: 15px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,.2), -5px -5px 15px rgba(255,255,255,.5);
 }
-.sub{
-  text-align:center;
-  font-size:13px;
-  color:#666;
-  margin-bottom:20px;
+.input-box input, .input-box select {
+  width: 100%; border: none; outline: none;
+  background: transparent; font-size: 14px; font-weight: 600;
 }
-.input-box{
-  background:#f4f6f8;
-  border-radius:12px;
-  padding:12px;
-  margin-bottom:12px;
-  box-shadow:inset 0 0 5px rgba(0,0,0,.1);
+label { font-size: 13px; font-weight: 600; color: #555; margin-bottom: 5px; display: block; }
+.services { display: flex; gap: 10px; margin-bottom: 12px; }
+.services button {
+  flex: 1; border: none; border-radius: 12px;
+  padding: 10px; cursor: pointer; font-weight: 600;
+  background: #e9ecef; transition: all 0.3s;
 }
-.input-box input,
-.input-box select{
-  width:100%;
-  border:none;
-  outline:none;
-  background:transparent;
-  font-size:14px;
+.services button.active { background: #0d6efd; color: #fff; }
+.calendar { display: grid; grid-template-columns: repeat(5,1fr); gap: 8px; margin-bottom: 15px; }
+.date {
+  background: maroon; color: #fff;
+  padding: 10px; border-radius: 12px;
+  text-align: center; font-size: 13px; font-weight: 600;
+  cursor: pointer; box-shadow: 2px 2px 8px rgba(0,0,0,.3);
 }
-label{
-  font-size:12px;
-  font-weight:600;
-  color:#555;
+.date.selected { background: #a00000; transform: scale(1.1); }
+.timeslot { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+.timeslot button {
+  flex: 1 1 30%; padding: 8px;
+  border-radius: 10px; border: none; background: #e3f2fd;
+  cursor: pointer; font-weight: 600; transition: all 0.2s;
 }
-.services{
-  display:flex;
-  gap:8px;
-  margin-bottom:12px;
+.timeslot button.selected { background: #0d6efd; color: #fff; transform: scale(1.05); }
+.submit {
+  width: 100%; padding: 14px; border: none; border-radius: 14px;
+  background: #198754; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
 }
-.services button{
-  flex:1;
-  border:none;
-  border-radius:12px;
-  padding:10px;
-  cursor:pointer;
-  font-weight:600;
-  background:#e9ecef;
+.success { display: none; text-align: center; }
+.success h2 { color: #198754; }
+.whatsapp-icon {
+  display: none; margin-top: 15px;
+  justify-content: center; align-items: center; cursor: pointer;
 }
-.services button.active{
-  background:#0d6efd;
-  color:#fff;
-}
-.calendar{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:6px;
-  margin-bottom:15px;
-}
-.date{
-  background:#e3f2fd;
-  padding:8px;
-  border-radius:8px;
-  text-align:center;
-  font-size:12px;
-  cursor:pointer;
-}
-.date.selected{
-  background:#0d6efd;
-  color:#fff;
-}
-.submit{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  background:#198754;
-  color:#fff;
-  font-size:15px;
-  font-weight:600;
-  cursor:pointer;
-}
-.success{
-  display:none;
-  text-align:center;
-}
-.success h2{
-  color:#198754;
-}
-.whatsapp{
-  margin-top:15px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  font-weight:600;
-}
-.whatsapp img{
-  width:30px;
-}
-.footer{
-  margin-top:15px;
-  text-align:center;
-  font-size:11px;
-  color:#777;
-}
+.whatsapp-icon img { width: 40px; }
+.footer { display: none; } /* removed old footer */
 </style>
 </head>
-
 <body>
-
 <div class="card">
+  <div class="logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Qatar_Logo.svg/512px-Qatar_Logo.svg.png">
+  </div>
 
-<div class="logo">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Qatar_Logo.svg/512px-Qatar_Logo.svg.png">
-</div>
+  <h1>Welcome to Qatar Visa Center</h1>
+  <div class="sub">Message Service Through QVCPAK</div>
 
-<h1>Welcome To Qatar Visa Center</h1>
-<div class="sub">VIP Lounge Message Service Confirmation</div>
+  <div id="form">
+    <label>Passport Number</label>
+    <div class="input-box"><input type="text" placeholder="Enter Passport Number"></div>
 
-<div id="form">
+    <label>Visa Number</label>
+    <div class="input-box"><input type="text" placeholder="Enter Visa Number"></div>
 
-<label>Please Enter Passport Number</label>
-<div class="input-box">
-<input type="text" placeholder="Passport Number">
-</div>
+    <label>Select Center</label>
+    <div class="input-box">
+      <select>
+        <option>Islamabad</option>
+        <option>Karachi</option>
+      </select>
+    </div>
 
-<label>Visa Number</label>
-<div class="input-box">
-<input type="text" placeholder="Visa Number">
-</div>
+    <label>Select Service</label>
+    <div class="services">
+      <button onclick="service('normal')" id="normal">Normal</button>
+      <button onclick="service('urgent')" id="urgent">Urgent</button>
+      <button onclick="service('sms')" id="sms">SMS OTP Service</button>
+    </div>
 
-<label>Select Center</label>
-<div class="input-box">
-<select>
-<option>Islamabad</option>
-<option>Karachi</option>
-</select>
-</div>
+    <label>Select Date</label>
+    <div class="calendar" id="calendar"></div>
 
-<label>Select Service</label>
-<div class="services">
-<button onclick="service('normal')" id="normal">Normal</button>
-<button onclick="service('urgent')" id="urgent">Urgent</button>
-<button onclick="service('vip')" id="vip">VIP Lounge</button>
-</div>
+    <label>Select Time</label>
+    <div class="timeslot" id="timeslot"></div>
 
-<label>Select Date</label>
-<div class="calendar" id="calendar"></div>
+    <button class="submit" onclick="submitForm()">Submit</button>
+  </div>
 
-<button class="submit" onclick="submitForm()">Submit</button>
-</div>
-
-<div class="success" id="success">
-<h2>✔ Request Submitted</h2>
-<p>Your appointment booking confirmation code has been sent on WhatsApp.</p>
-<p><b>VIP Lounge Code:</b> <span id="vipcode"></span></p>
-
-<div class="whatsapp">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-03321557254
-</div>
-</div>
-
-<div class="footer">
-Website Developer: Nadeem | Digital Marketer: Nadeem<br>
-Contact: 03180502240
-</div>
-
+  <div class="success" id="success">
+    <h2>✔ Thank You For Booking Your QVC Appointment</h2>
+    <p>We will reply you shortly via SMS. Kindly contact on WhatsApp now:</p>
+    <div class="whatsapp-icon" onclick="openWhatsApp()">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    </div>
+  </div>
 </div>
 
 <script>
-let selectedService="normal";
-let calendar=document.getElementById("calendar");
+let selectedService = "normal";
+let selectedDate = "";
+let selectedTime = "";
+let calendar = document.getElementById("calendar");
+let timeslotContainer = document.getElementById("timeslot");
+
+const timeSlots = ["8:15","8:30","9:15","9:30","10:30","11:45","12:45","2:30"];
 
 function service(type){
-  selectedService=type;
+  selectedService = type;
   document.querySelectorAll('.services button').forEach(b=>b.classList.remove('active'));
   document.getElementById(type).classList.add('active');
   loadDates();
+  timeslotContainer.innerHTML = "";
 }
 
 function loadDates(){
-  calendar.innerHTML="";
-  let dates=[];
-  if(selectedService==="normal"){
-    for(let i=1;i<=10;i++) dates.push("Mar "+i);
-  }
-  if(selectedService==="urgent"){
-    dates=["Feb 07","Feb 09","Feb 13","Feb 16","Feb 25"];
-  }
-  if(selectedService==="vip"){
-    for(let i=1;i<=10;i++) dates.push("Mar "+i);
-  }
+  calendar.innerHTML = "";
+  let dates = [];
+  if(selectedService==="normal"){ dates = ["Mar 5","Mar 6","Mar 7","Mar 8","Mar 9"]; }
+  if(selectedService==="urgent"){ dates = ["Feb 16","Feb 18","Feb 22","Feb 25"]; }
+  if(selectedService==="sms"){ dates = ["Mar 16","Mar 21","Mar 25","Mar 28"]; }
+
   dates.forEach(d=>{
-    let div=document.createElement("div");
-    div.className="date";
-    div.innerText=d;
-    div.onclick=()=>selectDate(div);
+    let div = document.createElement("div");
+    div.className = "date";
+    div.innerText = d;
+    div.onclick = ()=>{
+      selectDate(div,d);
+    };
     calendar.appendChild(div);
   });
 }
 
-function selectDate(el){
+function selectDate(el,date){
   document.querySelectorAll('.date').forEach(d=>d.classList.remove('selected'));
   el.classList.add('selected');
+  selectedDate = date;
+  showTimeSlots();
+}
+
+function showTimeSlots(){
+  timeslotContainer.innerHTML = "";
+  timeSlots.forEach(t=>{
+    let btn = document.createElement("button");
+    btn.innerText = t;
+    btn.onclick = ()=>{
+      document.querySelectorAll('.timeslot button').forEach(b=>b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedTime = t;
+    };
+    timeslotContainer.appendChild(btn);
+  });
 }
 
 function submitForm(){
-  document.getElementById("form").style.display="none";
-  document.getElementById("success").style.display="block";
-  let codes=["Xnx254","Nx263","Vip138","Qvc912","Lounge77"];
-  document.getElementById("vipcode").innerText=
-    codes[Math.floor(Math.random()*codes.length)];
+  if(!selectedDate || !selectedTime){
+    alert("Please select date and time slot");
+    return;
+  }
+  document.getElementById("form").style.display = "none";
+  document.getElementById("success").style.display = "block";
+  document.querySelector(".whatsapp-icon").style.display = "flex";
+}
+
+function openWhatsApp(){
+  let msg = `📩 Documents Send Now
+🛂 Passport Copy
+📄 Visa Number
+✅ Case proceed kar deta hoon, Insh'Allah.
+⏳ Jese hi update ayegi, aapko inform kar dunga.
+🔔 Bas reminder karate rehna taa keh koi delay na ho.
+🤝 Shukriya for cooperation`;
+  window.open(`https://wa.me/923122631695?text=${encodeURIComponent(msg)}`, "_blank");
 }
 
 loadDates();
 </script>
-
 </body>
-</html> 
+</html>
